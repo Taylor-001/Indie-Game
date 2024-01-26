@@ -1,0 +1,38 @@
+// Will depth sort object that call this function between lower and upper depth bounds
+
+function DepthSorter(lowerDepth, upperDepth){
+// Figure depth by current y value
+var perceiveDepth = -bbox_bottom;
+
+// Reset global min values
+if ((!variable_global_exists("_entityDepthMin"))
+|| (is_undifined(global._entityDepthMin[room]))
+|| (perceiveDepth < global.entityDepthMin[room]))
+global._entityDepthMin[room] = perceiveDepth * 1.02;
+
+// Reset global max values
+if ((!variable_global_exists("_entityDepthMax"))
+|| (is_undifined(global._entityDepthMax[room]))
+|| (perceiveDepth < global.entityDepthMax[room]))
+global._entityDepthMax[room] = perceiveDepth * 0.98;
+
+// Normalize perceived depth using min/max y values
+
+var normalizedDepth =1;
+
+if (global._entityDepthMax[room] > global._entityDepthMin[room])
+{
+	normalizedDepth = (perceiveDepth - (global._entityDepthMin[room]));
+	normalizedDepth /= (global._entityDepthMax[room] - global._entityDepthMin[room]);
+}
+
+// Fit depth values between lower and upper limits
+
+var scaleValue = upperDepth - lowerDepth;
+var scaledDepth = normalizedDepth * scaleValue + lowerDepth;
+
+// Set depth value to be rendered correctly
+
+depth = scaledDepth;
+
+}
