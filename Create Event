@@ -1,0 +1,12 @@
+xspd = 0;
+yspd = 0;
+
+move_spd = 0.8;
+
+
+sprite[RIGHT] = spr_player_right;
+sprite[DOWN] = spr_player_down;
+sprite[LEFT] = spr_player_left;
+sprite[UP] = spr_player_up;
+
+face = DOWN;
