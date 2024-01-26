@@ -1,0 +1,5 @@
+// Depth
+
+with (obj_instance_parent){
+depth = -y;
+}
